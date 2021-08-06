@@ -6,6 +6,8 @@ var gameState = 'PLAY';
 
 var timer;
 
+var score;
+
 function preload(){
   
   spaceshipImg = loadImage('Ship.png');
@@ -28,11 +30,14 @@ function setup() {
    Alien1 = new Group();
   // Alien2 = new Group();
   // Alien3 = new Group();
+
+  score = 0;
 }
 
 function draw() {
  
   background('black');
+  text('Score: ' + score, 50,50);
   
   if (gameState === 'PLAY') {
     
@@ -56,7 +61,7 @@ function draw() {
       Alien1.destroyEach();
     }
     
- 
+    score = score + Math.round(getFrameRate()/60);
     
     drawSprites();
       
