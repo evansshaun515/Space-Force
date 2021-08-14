@@ -2,18 +2,25 @@ var spaceship,spaceshipImg;
 
 var alien1, alien2, alien3, alienImg, Aliens;
 
-var gameState = 'PLAY';
+const PLAY = 1;
+const END = 0;
+
+var gameState = PLAY;
 
 var timer;
 
 var score;
+
+var bg,bgImg;
 
 function preload(){
   
   spaceshipImg = loadImage('Ship.png');
   
   alienImg = loadImage('Alien.jpg');
-  alien2Img = loadImage('Alien2.png')
+  alien2Img = loadImage('Alien2.png');
+
+  bgImg = loadImage('Space background.jpg')
   
 }
 
@@ -26,7 +33,11 @@ function setup() {
   spaceship.scale = 0.07;
   
 
-  
+  bg = createSprite(600,600);
+  bg.addImage(bgImg);
+  bg.scale = 2.5;
+  bg.velocityY = 2;
+
    Alien1 = new Group();
   // Alien2 = new Group();
   // Alien3 = new Group();
@@ -36,11 +47,24 @@ function setup() {
 
 function draw() {
  
-  background('black');
+  background(0);
+
+  drawSprites();
+
+  textSize(20);
+  fill("gold");
   text('Score: ' + score, 50,50);
+
   
-  if (gameState === 'PLAY') {
+  
+  if (gameState === PLAY) {
+
+  
     
+    if(bg.y > 600)
+    {
+      bg.y = 300;
+    }
     if (keyDown('left_arrow'))
     {
       spaceship.x = spaceship.x - 6;
@@ -59,21 +83,21 @@ function draw() {
     if (Alien1.isTouching(spaceship))
     {
       Alien1.destroyEach();
+      gameState = END;
     }
     
     score = score + Math.round(getFrameRate()/60);
     
-    drawSprites();
       
   }
   
-   else if (gameState === 'END')
+   else if (gameState === END)
     {
-      background('black');
+      background(bgImg);
       stroke('black');
-      fill('black');
+      fill('gold');
       textSize(30);
-      text('GAME OVER',300,300);
+      text('GAME OVER',700,400);
     }
   
 }
