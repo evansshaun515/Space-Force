@@ -2,16 +2,21 @@ var spaceship,spaceshipImg;
 
 var alien1, alien2, alien3, alienImg, Aliens;
 
+const START = 0;
 const PLAY = 1;
-const END = 0;
+const END = 2;
 
-var gameState = PLAY;
+var gameState = START;
 
 var timer;
 
 var score;
 
 var bg,bgImg;
+
+var edges;
+
+var spaceMusic;
 
 function preload(){
   
@@ -20,7 +25,9 @@ function preload(){
   alienImg = loadImage('Alien.jpg');
   alien2Img = loadImage('Alien2.png');
 
-  bgImg = loadImage('Space background.jpg')
+  bgImg = loadImage('Space background.jpg');
+
+  spaceMusic = loadSound('open-space.mp3');
   
 }
 
@@ -42,6 +49,10 @@ function setup() {
   // Alien2 = new Group();
   // Alien3 = new Group();
 
+  spaceMusic.loop();
+
+  
+
   score = 0;
 }
 
@@ -51,20 +62,34 @@ function draw() {
 
   drawSprites();
 
+  if(bg.y > 600)
+    {
+      bg.y = 300;
+    }
+
   textSize(20);
   fill("gold");
-  text('Score: ' + score, 50,50);
+  text('Distance Traveled: ' + score, 50,50);
 
-  
+  edges = createEdgeSprites();
+  spaceship.bounceOff(edges);
+
+  if (gameState === START){
+    text("Press right and left arrows to move the spaceship", 600, 50);
+    if (keyDown('left_arrow') || keyDown('right_arrow')){
+      gameState = PLAY;
+    }
+    
+  }
   
   if (gameState === PLAY) {
 
   
     
-    if(bg.y > 600)
-    {
-      bg.y = 300;
-    }
+    // if(bg.y > 600)
+    // {
+    //   bg.y = 300;
+    // }
     if (keyDown('left_arrow'))
     {
       spaceship.x = spaceship.x - 6;
@@ -86,7 +111,10 @@ function draw() {
       gameState = END;
     }
     
+    console.log('getFrameRate' + Math.round(getFrameRate()));
+    console.log('getFrameRate/60' + Math.round(getFrameRate()/60));
     score = score + Math.round(getFrameRate()/60);
+    
     
       
   }
@@ -106,14 +134,14 @@ function draw() {
         reset();
       }
     }
-
-    function reset(){
-      gameState = PLAY;
-      score = 0;
-      }
-  
 }
-function spawnAlien1()  
+
+ function reset(){
+  gameState = PLAY;
+  score = 0;
+  }
+
+  function spawnAlien1()  
 {
   
   if (World.frameCount % 100 == 0) 
