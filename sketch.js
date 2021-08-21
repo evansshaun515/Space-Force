@@ -1,6 +1,6 @@
 var spaceship,spaceshipImg;
 
-var alien1, alien2, alien3, alienImg, Aliens;
+var alien1, alienImg, Aliens;
 
 const START = 0;
 const PLAY = 1;
@@ -46,8 +46,7 @@ function setup() {
   bg.velocityY = 2;
 
    Alien1 = new Group();
-  // Alien2 = new Group();
-  // Alien3 = new Group();
+
 
   spaceMusic.loop();
 
@@ -84,12 +83,6 @@ function draw() {
   
   if (gameState === PLAY) {
 
-  
-    
-    // if(bg.y > 600)
-    // {
-    //   bg.y = 300;
-    // }
     if (keyDown('left_arrow'))
     {
       spaceship.x = spaceship.x - 6;
@@ -100,9 +93,6 @@ function draw() {
       spaceship.x = spaceship.x + 6;
     }
 
-    // timer = time();
-    // console.log('The current time is: ' + timer);
-    
     spawnAlien1();
  
     if (Alien1.isTouching(spaceship))
@@ -111,8 +101,6 @@ function draw() {
       gameState = END;
     }
     
-    console.log('getFrameRate' + Math.round(getFrameRate()));
-    console.log('getFrameRate/60' + Math.round(getFrameRate()/60));
     score = score + Math.round(getFrameRate()/60);
     
     
@@ -158,7 +146,7 @@ function draw() {
     
     Alien1.add(alien1);
     alien1.lifetime = 620;
-    //Alien1.add(alien1);
+    
   }
   
    if (World.frameCount % 133 == 0) 
@@ -175,7 +163,7 @@ function draw() {
     
     Alien1.add(alien1);
     alien1.lifetime = 620;
-    //Alien1.add(alien1);
+    
   }
    if (World.frameCount % 167 == 0) 
   {
@@ -191,7 +179,7 @@ function draw() {
     
     Alien1.add(alien1);
     alien1.lifetime = 620;
-    //Alien1.add(alien1);
+    
   }
    if (World.frameCount % 194 == 0) 
   {
@@ -207,7 +195,7 @@ function draw() {
     
     Alien1.add(alien1);
     alien1.lifetime = 620;
-    //Alien1.add(alien1);
+    
   }
    if (World.frameCount % 126 == 0) 
   {
@@ -223,7 +211,7 @@ function draw() {
     
     Alien1.add(alien1);
     alien1.lifetime = 620;
-    //Alien1.add(alien1);
+    
   }
    
   if (World.frameCount % 129 == 0) 
@@ -240,7 +228,7 @@ function draw() {
     
     Alien1.add(alien1);
     alien1.lifetime = 620;
-    //Alien1.add(alien1);
+    
   }
   
    if (World.frameCount % 111 == 0) 
@@ -257,7 +245,7 @@ function draw() {
     
     Alien1.add(alien1);
     alien1.lifetime = 620;
-    //Alien1.add(alien1);
+    
   }
   
    if (World.frameCount % 170 == 0) 
@@ -274,7 +262,7 @@ function draw() {
     
     Alien1.add(alien1);
     alien1.lifetime = 620;
-    //Alien1.add(alien1);
+    
   }
 
    if (World.frameCount % 108 == 0) 
@@ -291,7 +279,7 @@ function draw() {
     
     Alien1.add(alien1);
     alien1.lifetime = 620;
-    //Alien1.add(alien1);
+    
   }
   
    if (World.frameCount % 133 == 0) 
@@ -308,7 +296,7 @@ function draw() {
     
     Alien1.add(alien1);
     alien1.lifetime = 620;
-    //Alien1.add(alien1);
+    
   }
    if (World.frameCount % 161 == 0) 
   {
@@ -324,7 +312,7 @@ function draw() {
     
     Alien1.add(alien1);
     alien1.lifetime = 620;
-    //Alien1.add(alien1);
+    
   }
    if (World.frameCount % 199 == 0) 
   {
@@ -340,7 +328,7 @@ function draw() {
     
     Alien1.add(alien1);
     alien1.lifetime = 620;
-    //Alien1.add(alien1);
+    
   }
    if (World.frameCount % 122 == 0) 
   {
@@ -356,7 +344,7 @@ function draw() {
     
     Alien1.add(alien1);
     alien1.lifetime = 620;
-    //Alien1.add(alien1);
+    
   }
    
   if (World.frameCount % 120 == 0) 
@@ -373,7 +361,7 @@ function draw() {
     
     Alien1.add(alien1);
     alien1.lifetime = 620;
-    //Alien1.add(alien1);
+    
   }
   
    if (World.frameCount % 115 == 0) 
@@ -390,7 +378,7 @@ function draw() {
     
     Alien1.add(alien1);
     alien1.lifetime = 620;
-    //Alien1.add(alien1);
+    
   }
   
    if (World.frameCount % 174 == 0) 
@@ -407,7 +395,7 @@ function draw() {
     
     Alien1.add(alien1);
     alien1.lifetime = 620;
-    //Alien1.add(alien1);
+    
   }
   if (World.frameCount % 102 == 0) 
   {
@@ -423,7 +411,7 @@ function draw() {
     
     Alien1.add(alien1);
     alien1.lifetime = 620;
-    //Alien1.add(alien1);
+    
   }
   
    if (World.frameCount % 130 == 0) 
@@ -440,7 +428,7 @@ function draw() {
     
     Alien1.add(alien1);
     alien1.lifetime = 620;
-    //Alien1.add(alien1);
+    
   }
    if (World.frameCount % 168 == 0) 
   {
@@ -456,7 +444,7 @@ function draw() {
     
     Alien1.add(alien1);
     alien1.lifetime = 620;
-    //Alien1.add(alien1);
+    
   }
    if (World.frameCount % 192 == 0) 
   {
@@ -472,7 +460,7 @@ function draw() {
     
     Alien1.add(alien1);
     alien1.lifetime = 620;
-    //Alien1.add(alien1);
+    
   }
    if (World.frameCount % 127 == 0) 
   {
@@ -488,7 +476,7 @@ function draw() {
     
     Alien1.add(alien1);
     alien1.lifetime = 620;
-    //Alien1.add(alien1);
+    
   }
    
   if (World.frameCount % 120 == 0) 
@@ -505,7 +493,7 @@ function draw() {
     
     Alien1.add(alien1);
     alien1.lifetime = 620;
-    //Alien1.add(alien1);
+    
   }
   
    if (World.frameCount % 116 == 0) 
@@ -522,7 +510,7 @@ function draw() {
     
     Alien1.add(alien1);
     alien1.lifetime = 620;
-    //Alien1.add(alien1);
+    
   }
   
    if (World.frameCount % 170 == 0) 
@@ -540,7 +528,7 @@ function draw() {
     
     Alien1.add(alien1);
     alien1.lifetime = 620;
-    //Alien1.add(alien1);
+    
   }
   if (World.frameCount % 103 == 0) 
   {
@@ -556,7 +544,7 @@ function draw() {
     
     Alien1.add(alien1);
     alien1.lifetime = 620;
-    //Alien1.add(alien1);
+    
   }
   
    if (World.frameCount % 142 == 0) 
@@ -573,7 +561,7 @@ function draw() {
     
     Alien1.add(alien1);
     alien1.lifetime = 620;
-    //Alien1.add(alien1);
+    
   }
   if (World.frameCount % 126 == 0) 
   {
@@ -589,7 +577,7 @@ function draw() {
     
     Alien1.add(alien1);
     alien1.lifetime = 620;
-    //Alien1.add(alien1);
+    
   }
    if (World.frameCount % 138 == 0) 
   {
@@ -605,7 +593,7 @@ function draw() {
     
     Alien1.add(alien1);
     alien1.lifetime = 620;
-    //Alien1.add(alien1);
+    
   }
   
 }
